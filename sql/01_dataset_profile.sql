@@ -1,6 +1,6 @@
 -- GA4 public ecommerce dataset profile.
 WITH events AS (
- SELECT PARSE_DATE('%Y%m%d',event_date) AS event_dt,event_name,user_pseudo_id,
+ SELECT SAFE.PARSE_DATE('%Y%m%d',event_date) AS event_dt,event_name,user_pseudo_id,
  (SELECT ep.value.int_value FROM UNNEST(event_params) ep WHERE ep.key='ga_session_id' LIMIT 1) AS ga_session_id,
  ecommerce.purchase_revenue_in_usd AS purchase_revenue_usd
  FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
