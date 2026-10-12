@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.DS_Store
+outputs/bigquery_exports/*.csv
+!outputs/bigquery_exports/README.md
+dashboard/ga4_digital_analytics_dashboard.html
